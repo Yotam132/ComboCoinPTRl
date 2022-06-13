@@ -96,6 +96,12 @@ void ACoinSpawner::BeginPlay()
 			Coin->SetCoinSpawner(this);
 		}
 		
+		if (i == Index && WinAreaToSpawn)
+		{
+			Param.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+			GetWorld()->SpawnActor<AActor>(WinAreaToSpawn, CoinTransform, Param);
+		}
+		
 		DistanceNow += ObjectDistancing;
 	}
 

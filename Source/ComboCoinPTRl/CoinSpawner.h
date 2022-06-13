@@ -41,6 +41,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Spawns")
 	TSubclassOf<AActor> ObjectToSpawn;
 
+	/** Win Area To Spawn */
+	UPROPERTY(EditAnywhere, Category = "Spawns")
+	TSubclassOf<AActor> WinAreaToSpawn;
+
 	/** Distance between Object */
 	UPROPERTY(EditAnywhere, Category = "Spawns")
 	float ObjectDistancing;

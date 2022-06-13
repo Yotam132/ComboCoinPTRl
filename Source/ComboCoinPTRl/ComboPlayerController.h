@@ -25,8 +25,11 @@ public:
 
 	/** HUD Class */
 	UPROPERTY(VisibleAnywhere, Category = "HUD")
-	UUserWidget* CoinHUD;
+	UUserWidget* PointHUD;
 
 private:
+	UPROPERTY(VisibleAnywhere, Category = "Controllers")
+	class APawn* PossessedPawn;
+
 	UUserWidget* CreateCustomWidget(TSubclassOf<UUserWidget> Widget);
 };

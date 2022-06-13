@@ -4,7 +4,7 @@
 #include "Coin.h"
 
 #include "CoinSpawner.h"
-#include "ComboCoinPTRlCharacter.h"
+#include "PawnPlane.h"
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
@@ -52,10 +52,10 @@ void ACoin::ComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 {
 	if(OtherActor)
 	{
-		AComboCoinPTRlCharacter* Char = Cast<AComboCoinPTRlCharacter>(OtherActor);
+		APawnPlane* Char = Cast<APawnPlane>(OtherActor);
 		if(Char)
 		{
-			Char->AddCoinByValue(Value);
+			Char->AddPlanePointByValue(Value);
 			if(CoinSpawner)
 			{
 				CoinSpawner->MinusCoinAmountByOne();

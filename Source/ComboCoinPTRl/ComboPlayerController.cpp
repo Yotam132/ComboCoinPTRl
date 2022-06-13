@@ -4,22 +4,27 @@
 #include "ComboPlayerController.h"
 
 #include "Blueprint/UserWidget.h"
+#include "GameFramework/Pawn.h"
+#include "kismet/GameplayStatics.h"
 
 AComboPlayerController::AComboPlayerController()
 {
 	CoinAsset = nullptr;
-	CoinHUD = nullptr;
+	PointHUD = nullptr;
+	PossessedPawn = nullptr;
 }
 
 void AComboPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	CoinHUD = CreateCustomWidget(CoinAsset);
-	if(CoinHUD)
+	PossessedPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+
+	PointHUD = CreateCustomWidget(CoinAsset);
+	if(PointHUD)
 	{
-		CoinHUD->AddToViewport();
-		CoinHUD->SetVisibility(ESlateVisibility::Visible);
+		PointHUD->AddToViewport();
+		PointHUD->SetVisibility(ESlateVisibility::Visible);
 	}
 }
 
